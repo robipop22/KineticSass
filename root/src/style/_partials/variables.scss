@@ -1,1 +1,10 @@
- 
+$grid: 12;
+$columns: ('col-', 'col-offset');
+$unit: 'px';
+$breakpoints: (
+  xs: 0#{$unit},
+  s: 576#{$unit},
+  m: 768#{$unit},
+  l: 992#{$unit},
+  xl: 1200#{$unit}
+);
