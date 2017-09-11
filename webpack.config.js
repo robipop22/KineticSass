@@ -25,10 +25,12 @@ module.exports = {
           },
           {
             test: /\.html$/,
+            exclude: /node_modules/,
             loader: "raw-loader"
           },
           {
             test: /\.(png|jpg|gif)$/,
+            exclude: /node_modules/,
             loader: 'url-loader',
             options: {
               limit: 8192
@@ -39,7 +41,7 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: './root/index.html'
+            template: './index.html'
         })
     ]
 };
