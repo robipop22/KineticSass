@@ -35,6 +35,11 @@ module.exports = {
             options: {
               limit: 8192
             }
+          },
+          {
+            test: /\.svg$/,
+            exclude: /node_modules/,
+            loader: 'svg-inline-loader'
           }
         ]
     },
