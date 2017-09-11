@@ -1,0 +1,60 @@
+@mixin browser-prefix($element-property, $values...) {
+	-webkit-#{$element-property}: $values;
+	-moz-#{$element-property}: $values;
+	-ms-#{$element-property}: $values;
+	#{$element-property}: $values;
+}
+
+@mixin translate($top, $left, $pull-x, $pull-y, $position: absolute) {
+  position: $position;
+  top: $top;
+  left: $left;
+  @include browser-prefix(transform, translate($pull-x, $pull-y));
+}
+
+@mixin set-img-holder-size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin mask-url($url) {
+  -webkit-mask-image: url('#{$url}');
+  mask-image: url('#{$url}');
+}
+
+@mixin set-img-holder-bg ($img_url, $alpha: 1, $bgColor: null) {
+  @if (opacity != 1) {
+    opacity: $alpha;
+  }
+  @if($bgColor) {
+    background-color: $bgColor;
+    @include mask-url($img_url);
+    @extend %full-size-mask;
+  } @else {
+    background-image: url('#{$img_url}');
+    @extend %bg-center-cover;
+  }
+}
+
+@mixin responsive-img-holder( $list, $img_url, $alpha: 1, $bgColor: null) {
+  @each $set in $list {
+    $width: nth($set, 1);
+    $height: nth($set, 2);
+
+    @if length($set) == 2 {
+      @include set-img-holder-size($width, $height);
+    } @else {
+      $breakpoint: nth($set, 3);
+
+      @media all and(min-width: $breakpoint) {
+        @include set-img-holder-size($width, $height);
+      }
+    }
+  }
+  @include set-img-holder-bg ($img_url, $alpha, $bgColor);
+}
+
+@mixin simple-img-holder($width, $height, $img_url, $alpha: 1, $bgColor: null) {
+  @include set-img-holder-size($width, $height);
+  @include set-img-holder-bg ($img_url, $alpha, $bgColor);
+}

@@ -1,1 +1,22 @@
 @import './components/example';
+@import './_partials/_placeholder';
+@import './_partials/mixin.scss';
+
+// Test
+
+.simple-img-holder-test {
+  background-color: red;
+  width: 500px;
+  @include simple-img-holder(200px, 200px, 'https://spzone-simpleprogrammer.netdna-ssl.com/wp-content/uploads/2017/04/Untitled-1-1024x576.png');
+}
+.simple-img-holder-with-mask-test {
+  @include simple-img-holder(200px, 200px, '/images/bullet-calendar.svg', 1, red);
+}
+
+.responsive-simple-img-holder-test {
+  @include responsive-img-holder(((200px, 200px), (300px, 300px, 576px), (400px, 400px, 992px)), 'https://spzone-simpleprogrammer.netdna-ssl.com/wp-content/uploads/2017/04/Untitled-1-1024x576.png');
+}
+
+.responsive-img-holder-with-mask-test {
+  @include responsive-img-holder(((200px, 200px), (300px, 300px, 576px), (400px, 400px, 992px)), 'https://spzone-simpleprogrammer.netdna-ssl.com/wp-content/uploads/2017/04/Untitled-1-1024x576.png', 0.5, blue);
+}
