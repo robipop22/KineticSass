@@ -1,30 +1,24 @@
-$backgroundColor: rgba(0,0,0,0);
-$border: 5px solid rgba(0,183,229,0.9);
-$opacity: .9;
-$borderTop: 5px solid rgba(0,0,0,0);
-$borderLeft: 5px solid rgba(0,0,0,0);
-$borderRadius: 50px;
-$boxShadow: 0 0 35px #2187e7;
-$width: 50px;
-$height: 50px;
-$margin: 0 auto;
+$solidBlueBorder: 3px solid #27d2e7;
+$backgroundColor:#fffdf8;
 
 
 @mixin circle($size){
-  border-left: 3px solid #27d2e7;
+  border-left: $solidBlueBorder;
+  //TODO:
+  // longer spinning tail if needed
+  //EX:
+  // border-bottom: $solidBlueBorder;
+  //
+  background: $backgroundColor;
   padding: $size + px $size + px;
-  background: #fffdf8;
   width: 0;
-
   border-radius: $size + px;
 
   -webkit-animation: loading 1s infinite linear;
   -moz-animation: loading 1s infinite linear;
   -o-animation: loading 1s infinite linear;
   animation: loading 1s infinite linear;
-
 }
-
 
 @-webkit-keyframes loading {
   from {
