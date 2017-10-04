@@ -1,0 +1,17 @@
+@mixin circle($size){
+  border-left: $solidBlueBorder;
+  //TODO:
+  // longer spinning tail if needed
+  //EX:
+  // border-bottom: $solidBlueBorder;
+  //
+  background: $backgroundColor;
+  padding: $size + px $size + px;
+  width: 0;
+  border-radius: $size + px;
+
+  -webkit-animation: loading 1s infinite linear;
+  -moz-animation: loading 1s infinite linear;
+  -o-animation: loading 1s infinite linear;
+  animation: loading 1s infinite linear;
+}
